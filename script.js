@@ -5,11 +5,11 @@ const name = document.querySelector('.name')
 const temp = document.querySelector('.temp')
 const description = document.querySelector('.description')
 
-const apiData = ('http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=c310694a7f501f66fee0ed07b5506dbe')
+const apiData = ('https://api.openweathermap.org/data/2.5/weather?lat=&lon=&appid=c310694a7f501f66fee0ed07b5506dbe')
 
 searchSend.addEventListener('click', function (){
 
-    fetch('http://api.openweathermap.org/2.5/weather?q='+search.value+'&appid=c310694a7f501f66fee0ed07b5506dbe')
+    fetch(apiData)
         .then(res => {
             if (res.ok){
                 res.json().then(data => {

@@ -4,13 +4,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
     background-color: #f1f1f1;
     font-family: "Roboto", "sans-serif";
-}
+    margin: auto;
+    width: 1200px;
+    height: 100vh;
 
+
+}
+.global-container {
+
+    margin: 10px 50px;
+    width: 800px;
+
+}
+.main{
+        width: 1000px;
+    height: 400px;
+    background-color: cornflowerblue;
+}
 header {
     display: flex;
     justify-content: center;
@@ -92,8 +108,6 @@ img {
     right: 15px;
     cursor: pointer;
 }
-
-
 footer {
     display: flex;
     justify-content: center;
