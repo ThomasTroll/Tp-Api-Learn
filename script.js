@@ -1,26 +1,24 @@
+const wrapper = document.querySelector('.wrapper-container'),
+inputPart = wrapper.querySelector('.search-input'),
+infoTxt = inputPart.querySelector('.search-txt'),
+inputField = inputPart.querySelector('input');
+myKey = '4a3d98b3184f30861b855fece8afc03f';
+locationBtn = inputPart.querySelector('button');
 
-const searchSend = document.querySelector('.search-icon')
-const search = document.querySelector('#search')
-const name = document.querySelector('.name')
-const temp = document.querySelector('.temp')
-const description = document.querySelector('.description')
+inputField.addEventListener("keyup", e =>{
+    if(e.key === "Enter" && inputField.value !== ""){
+        requestApi(inputField.value);
+    }
+});
 
-const apiData = ('https://api.openweathermap.org/data/2.5/weather?lat=&lon=&appid=c310694a7f501f66fee0ed07b5506dbe')
 
-searchSend.addEventListener('click', function (){
+function requestApi(city){
+    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
+    infoTxt.innerText = "Getting weather details...";
+    infoTxt.classList.add("pendin");
+    fetch(api).then(response => response.json()).then(result => weatherDetails(result));
+}
 
-    fetch(apiData)
-        .then(res => {
-            if (res.ok){
-                res.json().then(data => {
-// document.getElementById('weather-container').innerHTML = data.hourly_units.temperature_2m;
-                    console.log(data)
-                })
-            }else {
-                document.getElementById('erreur').innerHTML = "ERREUR :("
-            }
-        })
-})
-let element = document.getElementById('weather-container');
-element.innerHTML = `<p></p>`
-
+function weatherDetails(info){
+    console.log(info);
+}
