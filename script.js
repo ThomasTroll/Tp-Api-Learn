@@ -11,7 +11,7 @@ const sendValue = () => {
         .then((data) => {
             place.innerHTML =`
       <div class="data_results">
-      <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="meteo${data.name}"/>
+      <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="meteo${data.name}"/>
           <h3>${data.name}</h3>
         <h4> ${data.main.temp} °C</h4>
           <div class="data">
